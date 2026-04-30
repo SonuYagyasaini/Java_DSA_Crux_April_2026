@@ -33,7 +33,7 @@ public class Pattern27 {
 			System.out.println();
 			row++; 
 			space--;
-			star += 2;
+			star += 2;   
 		}
 
 	}
