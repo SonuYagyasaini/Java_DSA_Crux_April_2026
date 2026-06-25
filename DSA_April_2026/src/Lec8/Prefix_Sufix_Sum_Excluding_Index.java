@@ -1,8 +1,6 @@
 package Lec8;
 
-import java.util.Iterator;
-
-public class Prefix_Sufix_Approach {
+public class Prefix_Sufix_Sum_Excluding_Index {
 
 	public static void main(String[] args) {
 		int[] arr = { 3, 5, 6, 2, 4, 16, 7, 8, 9 };
@@ -11,21 +9,22 @@ public class Prefix_Sufix_Approach {
 	}
 
 	public static void Prefix_Suffix_Sum(int[] arr) {
-		// Prefix sum array including index
+		// Prefix sum array excluding index
 
 		int n = arr.length;
 		int[] left = new int[n];
-		left[0] = arr[0];
-		for (int i = 1; i < n; i++) {
-			left[i] = left[i - 1] + arr[i];
+		left[0] = 0;
+		for (int i = 1; i < left.length; i++) {
+			left[i] = left[i - 1] + arr[i-1];
 		}
 
-		// Suffix sum array including index
+		// Suffix sum array excluding index
 
 		int[] right = new int[n];
-		right[n - 1] = arr[n - 1];
+		right[n - 1] = 0;
+		
 		for (int i = n - 2; i >= 0; i--) {
-			right[i] = right[i + 1] + arr[i];
+			right[i] = right[i + 1] + arr[i+1];
 		}
 		for (int item : left) {
 			System.out.print(item + " ");
