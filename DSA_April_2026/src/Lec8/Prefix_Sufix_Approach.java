@@ -39,3 +39,28 @@ public class Prefix_Sufix_Approach {
 	}
 
 }
+
+
+//Kis Type Ke Questions Me Suffix Use Hota Hai?
+//1. Product Except Self ⭐⭐⭐⭐⭐
+//
+//Prefix Product + Suffix Product
+//
+//Leetcode Famous
+//
+//2. Rain Water
+//
+//Some approaches
+//
+//3. Maximum Difference
+//Future maximum
+//
+//Need suffix maximum
+//
+//4. Maximum Profit Stock
+//
+//Right side maximum
+//
+//5. Leaders in Array
+//
+//Need future maximum
