@@ -6,52 +6,70 @@ public class NextPermutation {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+
 		int n = sc.nextInt();
-		int[] arr = new int[n];
-		for (int i = 0; i < arr.length; i++) {
-			arr[i] = sc.nextInt();
-		}
-		NextPermutation(arr);
 
+		int[] nums = new int[n];
+
+		for (int i = 0; i < n; i++)
+			nums[i] = sc.nextInt();
+
+		nextPermutation(nums);
 	}
-	
-	public static void reverse(int start, int end, int[] nums) {
-        while(start < end) {
-             int temp = nums[start];
-             nums[start] = nums[end];
-             nums[end] = temp;
-             start++;
-             end--;
-        }
-    }
-    public static void NextPermutation(int[] nums) {
-        int pos = -1;
-        for(int i = nums.length-2; i >= 0; i--) {
-            int curr = nums[i];
-            int prev = nums[i+1];
-            if(curr < prev) {
-                pos = i;
-                break;
-            }
-        }
-        if(pos == -1) {
-            // i need to reverse the whole array
-            reverse(0, nums.length-1, nums);
-            return;
-        }
-        for(int start = nums.length-1; start > pos; start--) {
-            if(nums[start] > nums[pos]) {
-                int temp = nums[start];
-                nums[start] = nums[pos];
-                nums[pos] = temp;
-                break;
-            }
-        }
-        reverse(pos+1, nums.length-1, nums);
-        for(int num : nums)
-        {
-        	System.out.print(num+" ");
-        }
-    } 
-}
 
+	static void reverse(int left, int right, int[] nums) {
+
+		while (left < right) {
+
+			int temp = nums[left];
+			nums[left] = nums[right];
+			nums[right] = temp;
+
+			left++;
+			right--;
+		}
+	}
+
+	static void nextPermutation(int[] nums) {
+
+		int pos = -1;
+
+		// Step 1 : Find Pivot
+		for (int i = nums.length - 2; i >= 0; i--) {
+
+			if (nums[i] < nums[i + 1]) {
+				pos = i;
+				break;
+			}
+		}
+
+		// Step 2 : If no pivot
+		if (pos == -1) {
+
+			reverse(0, nums.length - 1, nums);
+
+			for (int x : nums)
+				System.out.print(x + " ");
+
+			return;
+		}
+
+		// Step 3 : Find next greater element
+		for (int i = nums.length - 1; i > pos; i--) {
+
+			if (nums[i] > nums[pos]) {
+
+				int temp = nums[i];
+				nums[i] = nums[pos];
+				nums[pos] = temp;
+				break;
+			}
+		}
+
+		// Step 4 : Reverse suffix
+		reverse(pos + 1, nums.length - 1, nums);
+
+		for (int x : nums)
+			System.out.print(x + " ");
+	}
+}
