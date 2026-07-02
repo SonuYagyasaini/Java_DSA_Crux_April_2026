@@ -36,7 +36,7 @@ public class RotateArray_Leetcode {
 		Reverse(arr, n - k, n-1); // op: 4 3 2 1 7 6 5
 
 		//
-		Reverse(arr, 0, n - 1);
+		Reverse(arr, 0, n - 1);   //op : 5 6 7 1 2 3 4
 
 		for (int i : arr) {
 			System.out.print(i + " ");
